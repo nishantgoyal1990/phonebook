@@ -1,0 +1,43 @@
+
+<p id="notice"><%= notice %></p>
+<% provide(:title, @account.name) %>
+<html>
+<head>
+<title><%= yield(:title) %></title>
+</head>
+
+<aside class="span4">
+  <section>
+  <h1>
+  <%= gravatar_for @account %>
+  <%= @account.name %>
+
+</h1>
+<a href="http://gravatar.com/emails">change gravatar</a>
+</section>
+</aside>
+<p>
+  <b>Name:</b>
+  <%= @account.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @account.email %>
+</p>
+
+
+
+<% if signed_in? %>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', contacts_path %> | <%= link_to 'Destroy', { :controller => 'accounts', :action => 'destroy' }, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+<%= link_to 'Back', signin_path %>
+<% end %>
+
+
+<div class="row">
+  
+</div>
+</html>

@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<nav>
+						<ul class="nav pull-right">
+							<% if signed_in? %>
+							<li><%= link_to 'Phonebook', contacts_path %></li>
+							<li><%= link_to "Account Details", { :controller => "accounts", :action => "show", :id => Account.find_by_remember_token(cookies[:remember_token]).id }  %></li>
+							<li><%= link_to "Edit your account", { :controller => "accounts", :action => "edit", :id => Account.find_by_remember_token(cookies[:remember_token]).id } %></li>
+							<li><%= link_to "Sign out", signout_path, method: "delete"%> 
+							<% else %>
+							<li><%= link_to "Sign in", signin_path %></li>
+							<% end %>
+							<li><%= link_to "Help", help_path %></li>
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>

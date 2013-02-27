@@ -1,0 +1,19 @@
+describe "for non-signed-in accounts" do
+      let(:account) { FactoryGirl.create(:account) }
+
+      describe "when attempting to visit a protected page" do
+        before do
+          visit edit_account_path(account)
+          fill_in "Email",    with: account.email
+          fill_in "Password", with: account.password
+          click_button "Sign in"
+        end
+
+        describe "after signing in" do
+
+          it "should render the desired protected page" do
+            page.should have_selector('h1', text: 'Editing account')
+          end
+        end
+      end
+end

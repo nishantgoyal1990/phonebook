@@ -1,0 +1,7 @@
+
+
+		<% if signed_in? %>
+<%= link_to "Home", { :controller => "accounts", :action => "show", :id => Account.find_by_remember_token(cookies[:remember_token]).id }  %> |
+<%= link_to "Edit your account", { :controller => "accounts", :action => "edit", :id => Account.find_by_remember_token(cookies[:remember_token]).id } %> |
+<%= link_to "Sign out", signout_path, method: "delete"%> 
+<% end %>
