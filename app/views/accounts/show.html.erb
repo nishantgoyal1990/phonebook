@@ -31,7 +31,7 @@
 <% if signed_in? %>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', contacts_path %> | <%= link_to 'Destroy', { :controller => 'accounts', :action => 'destroy' }, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Destroy', { :controller => 'accounts', :action => 'destroy' }, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', contacts_path %> 
 <% else %>
 <%= link_to 'Back', signin_path %>
 <% end %>

@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
-before_filter :signed_in_account, only: [:edit, :update, :destroy]
-before_filter :correct_account, only: [:edit, :update, :destroy]
+before_filter :signed_in_account, only: [:show,:edit, :update, :destroy]
+before_filter :correct_account, only: [:show, :edit, :update, :destroy]
   # GET /accounts
   # GET /accounts.json
   
