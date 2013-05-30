@@ -5,28 +5,26 @@ module SessionsHelper
 	end
 	def current_user=(user)
 		@current_user=user
-		
 	end
 	def user_id
 		user_id=Account.find_by_remember_token(cookies[:remember_token]).id
-				@user_id=user_id
-			end
+		@user_id=user_id
+	end
 	def current_user
-				@current_user ||=Account.find_by_remember_token(cookies[:remember_token])
-				end
+		@current_user ||=Account.find_by_remember_token(cookies[:remember_token])
+	end
 
 	def signed_in?
-	!current_user.nil?
+		!current_user.nil?
 	end
 	
 	def sign_out
-	self.current_user=nil
-	cookies.delete(:remember_token)
+		self.current_user=nil
+		cookies.delete(:remember_token)
 	end
 
 	def current_user?(user)
 		user==user_id
-		
 	end
 
 	def redirect_back_or(default)

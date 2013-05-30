@@ -7,7 +7,8 @@ gem 'therubyracer'
 gem 'bcrypt-ruby'
 gem 'pry'
 gem 'rspec'
-
+gem 'whenever', :require => false 
+gem 'rufus-scheduler'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
